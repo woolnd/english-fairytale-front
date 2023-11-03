@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="커뮤니티"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/back.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_gray"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/title.tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/title.tv"/>
+
+
+    <ImageView
+        android:id="@+id/search_bar.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/searchbar"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/title.tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/search.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/search"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toTopOf="@id/search_bar.iv"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar.iv"
+        app:layout_constraintStart_toStartOf="@id/search_bar.iv"/>
+
+    <EditText
+        android:id="@+id/search.et"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:hint="동화책 검색하기"
+        android:textSize="14sp"
+        android:textColor="#98989E"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="@id/search_bar.iv"
+        app:layout_constraintStart_toEndOf="@id/search.iv"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar.iv"/>
+
+
+    <ImageView
+        android:id="@+id/filter_left.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/filter_left"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/search_bar.iv"
+        app:layout_constraintStart_toStartOf="@id/search_bar.iv"/>
+
+    <TextView
+        android:id="@+id/filter_left.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목 검색"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/filter_left.iv"
+        app:layout_constraintStart_toStartOf="@id/filter_left.iv"
+        app:layout_constraintEnd_toEndOf="@id/filter_left.iv"
+        app:layout_constraintBottom_toBottomOf="@id/filter_left.iv"/>
+
+    <ImageView
+        android:id="@+id/filter_right.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/filter_right_gray"
+        app:layout_constraintTop_toTopOf="@id/filter_left.iv"
+        app:layout_constraintEnd_toEndOf="@id/search_bar.iv"/>
+
+    <TextView
+        android:id="@+id/filter_right.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임 검색"
+        android:textColor="#B5B6BD"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/filter_right.iv"
+        app:layout_constraintStart_toStartOf="@id/filter_right.iv"
+        app:layout_constraintEnd_toEndOf="@id/filter_right.iv"
+        app:layout_constraintBottom_toBottomOf="@id/filter_right.iv"/>
+
+    <FrameLayout
+        android:id="@+id/search.fl"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/filter_left.iv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

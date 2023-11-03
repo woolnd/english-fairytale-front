@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slideup.sl"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    tools:context=".CommunityActivity"
+    android:gravity="bottom"
+    app:umanoDragView="@id/drag.cl"
+    app:umanoScrollableView="@id/community.sv"
+    app:umanoPanelHeight="735dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/back.cl"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/drag.cl"
+        android:layout_width="360dp"
+        android:layout_height="960dp"
+        android:background="#F7F8FA">
+
+
+        <ImageView
+            android:id="@+id/background.iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/community_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/back1.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_white"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/title1.tv"
+            app:layout_constraintBottom_toBottomOf="@id/title1.tv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/title1.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="커뮤니티"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintTop_toTopOf="@id/background.iv"
+            app:layout_constraintStart_toStartOf="@id/background.iv"
+            app:layout_constraintEnd_toEndOf="@id/background.iv"/>
+
+        <TextView
+            android:id="@+id/sub1.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다양한 이야기 속으로"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/back1.iv"
+            app:layout_constraintStart_toStartOf="@id/back1.iv"/>
+
+        <TextView
+            android:id="@+id/sub2.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="친구들이 만든 이야기도\n함께 볼까요?"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/sub1.tv"
+            app:layout_constraintStart_toStartOf="@id/sub1.tv"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/background.iv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#F7F8FA">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header.cl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/title2.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="커뮤니티"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginTop="18dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/back2.iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_gray"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintTop_toTopOf="@id/title2.tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/title2.tv"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ScrollView
+                android:id="@+id/community.sv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/header.cl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/search_bar.iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/searchbar"
+                        android:layout_marginTop="18dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/search.iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/search"
+                        android:layout_marginStart="12dp"
+                        app:layout_constraintTop_toTopOf="@id/search_bar.iv"
+                        app:layout_constraintBottom_toBottomOf="@id/search_bar.iv"
+                        app:layout_constraintStart_toStartOf="@id/search_bar.iv"/>
+
+                    <TextView
+                        android:id="@+id/search.et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동화책 검색하기"
+                        android:textSize="14sp"
+                        android:textColor="#98989E"
+                        android:background="@null"
+                        app:layout_constraintTop_toTopOf="@id/search_bar.iv"
+                        app:layout_constraintStart_toEndOf="@id/search.iv"
+                        app:layout_constraintBottom_toBottomOf="@id/search_bar.iv"/>
+
+                    <TextView
+                        android:id="@+id/best.tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="베스트셀러"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@id/search_bar.iv"
+                        app:layout_constraintStart_toStartOf="@id/search_bar.iv"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/best.rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/best.tv"
+                        app:layout_constraintStart_toStartOf="@id/best.tv"
+                        tools:listitem="@layout/item_best"/>
+
+                    <TextView
+                        android:id="@+id/community.tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="친구들의 책 둘러보기"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintTop_toBottomOf="@id/best.rv"
+                        app:layout_constraintStart_toStartOf="@id/best.rv"/>
+
+                    <TextView
+                        android:id="@+id/filter.tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="필터"
+                        android:textSize="12sp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toTopOf="@id/community.tv"
+                        app:layout_constraintEnd_toStartOf="@id/filter.iv"/>
+
+                    <ImageView
+                        android:id="@+id/filter.iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/filter"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="@id/filter.tv"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/community.cl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/community.tv"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img.iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/book_no"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/chip.iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/community_chip"
+                            android:layout_marginTop="14dp"
+                            android:layout_marginStart="20dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/content.tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="아직 올라온 동화가 없어ㅠㅠ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toBottomOf="@id/chip.iv"
+                            app:layout_constraintStart_toStartOf="@id/chip.iv"/>
+
+                        <TextView
+                            android:id="@+id/sub3.tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="내가 제일먼저 나만의 동화를 올려볼까요?"
+                            android:textSize="12sp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toBottomOf="@id/content.tv"
+                            app:layout_constraintStart_toStartOf="@id/content.tv"/>
+
+                        <ImageView
+                            android:id="@+id/btn.iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/make_btn"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintTop_toBottomOf="@id/sub3.tv"
+                            app:layout_constraintStart_toStartOf="@id/img.iv"
+                            app:layout_constraintEnd_toEndOf="@id/img.iv"/>
+
+                        <ImageView
+                            android:id="@+id/globe.iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/globe"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="78dp"
+                            app:layout_constraintTop_toTopOf="@id/btn.iv"
+                            app:layout_constraintStart_toStartOf="@id/btn.iv"/>
+
+                        <TextView
+                            android:id="@+id/sub4.tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="나의 동화 목록으로"
+                            android:textSize="14sp"
+                            android:textColor="#FF8844"
+                            app:layout_constraintTop_toTopOf="@id/globe.iv"
+                            app:layout_constraintStart_toEndOf="@id/globe.iv"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/community.rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="300dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/community.cl"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:listitem="@layout/item_books"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

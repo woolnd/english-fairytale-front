@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F3F5"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl1"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/title.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마이페이지"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/back.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_gray"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/title.tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/title.tv"/>
+
+        <ImageView
+            android:id="@+id/profile.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile1"
+            android:layout_marginTop="29dp"
+            app:layout_constraintTop_toBottomOf="@id/back.iv"
+            app:layout_constraintStart_toStartOf="@id/back.iv"/>
+
+        <TextView
+            android:id="@+id/profile.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="김철수"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toTopOf="@id/profile.iv"
+            app:layout_constraintBottom_toBottomOf="@id/profile.iv"
+            app:layout_constraintStart_toEndOf="@id/profile.iv"/>
+
+        <ImageView
+            android:id="@+id/my_book.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/my_book"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/profile.iv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/my_book.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나의 동화"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toTopOf="@id/my_book.iv"
+            app:layout_constraintStart_toStartOf="@id/my_book.iv"/>
+
+        <TextView
+            android:id="@+id/my_book_cnt.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/my_book.tv"
+            app:layout_constraintStart_toStartOf="@id/my_book.tv"/>
+
+        <TextView
+            android:id="@+id/cnt1.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@id/my_book_cnt.tv"
+            app:layout_constraintStart_toEndOf="@id/my_book_cnt.tv"/>
+
+        <ImageView
+            android:id="@+id/my_book_btn.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/my_book_btn"
+            android:layout_marginTop="35dp"
+            app:layout_constraintTop_toTopOf="@id/my_book.iv"
+            app:layout_constraintEnd_toEndOf="@id/my_book.iv"/>
+
+        <ImageView
+            android:id="@+id/like_book.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/like_book"
+            app:layout_constraintTop_toTopOf="@id/my_book.iv"
+            app:layout_constraintStart_toEndOf="@id/my_book.iv"/>
+
+        <TextView
+            android:id="@+id/like_book.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="찜한 동화"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toTopOf="@id/like_book.iv"
+            app:layout_constraintStart_toStartOf="@id/like_book.iv"/>
+
+        <TextView
+            android:id="@+id/like_book_cnt.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="121"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/like_book.tv"
+            app:layout_constraintStart_toStartOf="@id/like_book.tv"/>
+
+        <TextView
+            android:id="@+id/cnt2.tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@id/like_book_cnt.tv"
+            app:layout_constraintStart_toEndOf="@id/like_book_cnt.tv"/>
+
+        <ImageView
+            android:id="@+id/like_book_btn.iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/like_book_btn"
+            android:layout_marginTop="35dp"
+            app:layout_constraintTop_toTopOf="@id/like_book.iv"
+            app:layout_constraintEnd_toEndOf="@id/like_book.iv"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/round.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/under_round"
+        app:layout_constraintTop_toBottomOf="@id/cl1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/list1.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/list1"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/round.iv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/info.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 정보"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/list1.iv"
+        app:layout_constraintStart_toStartOf="@id/list1.iv"/>
+
+    <ImageView
+        android:id="@+id/info.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="@id/info.tv"
+        app:layout_constraintEnd_toStartOf="@id/info_btn.iv"/>
+
+    <TextView
+        android:id="@+id/parent1.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="부모님용"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="#5C5D61"
+        app:layout_constraintTop_toTopOf="@id/info.iv"
+        app:layout_constraintStart_toStartOf="@id/info.iv"
+        app:layout_constraintEnd_toEndOf="@id/info.iv"
+        app:layout_constraintBottom_toBottomOf="@id/info.iv"/>
+
+    <ImageView
+        android:id="@+id/info_btn.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_page_btn"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/info.tv"
+        app:layout_constraintEnd_toEndOf="@id/list1.iv"/>
+
+    <TextView
+        android:id="@+id/inquiry.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="문의하기"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/info.tv"
+        app:layout_constraintStart_toStartOf="@id/info.tv" />
+
+    <ImageView
+        android:id="@+id/inquiry_btn.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_page_btn"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/inquiry.tv"
+        app:layout_constraintEnd_toEndOf="@id/list1.iv"/>
+
+    <ImageView
+        android:id="@+id/inquiry.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toTopOf="@id/inquiry.tv"
+        app:layout_constraintEnd_toStartOf="@id/inquiry_btn.iv"/>
+
+    <TextView
+        android:id="@+id/parent2.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="부모님용"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/inquiry.iv"
+        app:layout_constraintStart_toStartOf="@id/inquiry.iv"
+        app:layout_constraintEnd_toEndOf="@id/inquiry.iv"
+        app:layout_constraintBottom_toBottomOf="@id/inquiry.iv"/>
+
+    <TextView
+        android:id="@+id/notice.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공지사항"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/inquiry.tv"
+        app:layout_constraintStart_toStartOf="@id/inquiry.tv"/>
+
+    <ImageView
+        android:id="@+id/notice.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_page_btn"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/notice.tv"
+        app:layout_constraintEnd_toEndOf="@id/list1.iv"/>
+
+    <TextView
+        android:id="@+id/faq.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAQ"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/notice.tv"
+        app:layout_constraintStart_toStartOf="@id/notice.tv"/>
+
+    <ImageView
+        android:id="@+id/faq.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_page_btn"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/faq.tv"
+        app:layout_constraintEnd_toEndOf="@id/list1.iv"/>
+
+    <ImageView
+        android:id="@+id/list2.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/list2"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/list1.iv"
+        app:layout_constraintStart_toStartOf="@id/list1.iv"
+        app:layout_constraintEnd_toEndOf="@id/list1.iv"/>
+
+    <TextView
+        android:id="@+id/service.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="서비스 이용약관"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/list2.iv"
+        app:layout_constraintStart_toStartOf="@id/list2.iv"/>
+
+    <ImageView
+        android:id="@+id/service.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_page_btn"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/service.tv"
+        app:layout_constraintEnd_toEndOf="@id/list2.iv"/>
+
+    <TextView
+        android:id="@+id/privacy.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개인정보 처리방침"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/service.tv"
+        app:layout_constraintStart_toStartOf="@id/service.tv"/>
+
+    <ImageView
+        android:id="@+id/privacy.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_page_btn"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/privacy.tv"
+        app:layout_constraintEnd_toEndOf="@id/list2.iv"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

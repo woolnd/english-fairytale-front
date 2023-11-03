@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title1.tv"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:text="로그인 하고 나만의"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginTop="98dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/title2.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영어동화"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/title1.tv"
+        app:layout_constraintEnd_toStartOf="@id/title3.tv"
+        app:layout_constraintStart_toStartOf="@id/title1.tv"/>
+
+    <TextView
+        android:id="@+id/title3.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="를 만들어 볼까요?"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="@id/title2.tv"
+        app:layout_constraintStart_toEndOf="@id/title2.tv"
+        app:layout_constraintEnd_toEndOf="@id/title1.tv"/>
+
+    <TextView
+        android:id="@+id/title4.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나의 이야기로 영어로 더 친근하게"
+        android:textColor="#98989E"
+        android:textSize="14sp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/title2.tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/background.iv"
+        android:layout_width="360dp"
+        android:layout_height="371dp"
+        android:src="@drawable/initial_back1"
+        app:layout_constraintTop_toBottomOf="@id/title4.tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/join.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="14sp"
+        android:textColor="#98989E"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/thin1.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/initial_thin"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/join.tv"
+        app:layout_constraintStart_toEndOf="@id/join.tv"
+        app:layout_constraintBottom_toBottomOf="@id/join.tv"/>
+
+    <TextView
+        android:id="@+id/pw.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 초기화"
+        android:textSize="14sp"
+        android:textColor="#98989E"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/join.tv"
+        app:layout_constraintStart_toEndOf="@id/thin1.iv"
+        app:layout_constraintBottom_toBottomOf="@id/join.tv"/>
+
+    <ImageView
+        android:id="@+id/thin2.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/initial_thin"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/pw.tv"
+        app:layout_constraintStart_toEndOf="@id/pw.tv"
+        app:layout_constraintBottom_toBottomOf="@id/pw.tv"/>
+
+    <TextView
+        android:id="@+id/login.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이메일 로그인"
+        android:textSize="14sp"
+        android:textColor="#98989E"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/pw.tv"
+        app:layout_constraintStart_toEndOf="@id/thin2.iv"
+        app:layout_constraintBottom_toBottomOf="@id/pw.tv"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
