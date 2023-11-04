@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/signup.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#1F2021"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"/>
+
+    <ImageView
+        android:id="@+id/backbutton.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/backbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"/>
+
+    <ScrollView
+        android:id="@+id/scroll.sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backbutton.iv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profile.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/setting.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profileset"
+                app:layout_constraintBottom_toBottomOf="@id/profile.iv"
+                app:layout_constraintEnd_toEndOf="@id/profile.iv" />
+
+            <!--이메일-->
+            <TextView
+                android:id="@+id/email.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="이메일"
+                android:textColor="@color/hanblack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile.iv" />
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="1dp"
+                android:src="@drawable/dot"
+                app:layout_constraintStart_toEndOf="@id/email.tv"
+                app:layout_constraintTop_toTopOf="@id/email.tv" />
+
+            <ImageView
+                android:id="@+id/email_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/editbox"
+                app:layout_constraintStart_toStartOf="@id/email.tv"
+                app:layout_constraintTop_toBottomOf="@id/email.tv" />
+
+            <EditText
+                android:id="@+id/email.et"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
+                android:background="@android:color/transparent"
+                android:hint="이메일을 입력해 주세요"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toBottomOf="@id/email_box.iv"
+                app:layout_constraintStart_toStartOf="@id/email_box.iv"
+                app:layout_constraintTop_toTopOf="@id/email_box.iv" />
+
+            <TextView
+                android:id="@+id/error1.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="올바른 이메일을 입력해 주세요"
+                android:textColor="#E13017"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginTop="6dp"
+                app:layout_constraintTop_toBottomOf="@id/email.et"
+                app:layout_constraintStart_toStartOf="@id/email_box.iv"/>
+
+            <!--비밀번호-->
+            <TextView
+                android:id="@+id/password.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="비밀번호"
+                android:textColor="@color/hanblack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/email_box.iv"
+                app:layout_constraintTop_toBottomOf="@id/email_box.iv" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="1dp"
+                android:src="@drawable/dot"
+                android:contentDescription="dot"
+                app:layout_constraintStart_toEndOf="@id/password.tv"
+                app:layout_constraintTop_toTopOf="@id/password.tv" />
+
+            <ImageView
+                android:id="@+id/password_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/editbox"
+                app:layout_constraintStart_toStartOf="@id/password.tv"
+                app:layout_constraintTop_toBottomOf="@id/password.tv" />
+
+            <EditText
+                android:id="@+id/password.et"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
+                android:background="@android:color/transparent"
+                android:hint="비밀번호를 입력해 주세요"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toBottomOf="@id/password_box.iv"
+                app:layout_constraintStart_toStartOf="@id/password_box.iv"
+                app:layout_constraintTop_toTopOf="@id/password_box.iv" />
+
+            <TextView
+                android:id="@+id/error2.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영문 숫자 조합 2~10자 조합으로 입력해 주세요"
+                android:textColor="#E13017"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginTop="6dp"
+                app:layout_constraintTop_toBottomOf="@id/password_box.iv"
+                app:layout_constraintStart_toStartOf="@id/password_box.iv"/>
+
+            <ImageView
+                android:id="@+id/eye_off.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/eye_off"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintTop_toTopOf="@id/password_box.iv"
+                app:layout_constraintBottom_toBottomOf="@id/password_box.iv"
+                app:layout_constraintEnd_toEndOf="@id/password_box.iv"/>
+
+            <!--비밀번호확인-->
+
+            <TextView
+                android:id="@+id/password_check.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="비밀번호 확인"
+                android:textColor="@color/hanblack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/password_box.iv"
+                app:layout_constraintTop_toBottomOf="@id/password_box.iv" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="1dp"
+                android:src="@drawable/dot"
+                app:layout_constraintStart_toEndOf="@id/password_check.tv"
+                app:layout_constraintTop_toTopOf="@id/password_check.tv" />
+
+            <ImageView
+                android:id="@+id/passwordcheck_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/editbox"
+                app:layout_constraintStart_toStartOf="@id/password_check.tv"
+                app:layout_constraintTop_toBottomOf="@id/password_check.tv" />
+
+            <EditText
+                android:id="@+id/password_check.et"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
+                android:background="@android:color/transparent"
+                android:hint="비밀번호를 입력해 주세요"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toBottomOf="@id/passwordcheck_box.iv"
+                app:layout_constraintStart_toStartOf="@id/passwordcheck_box.iv"
+                app:layout_constraintTop_toTopOf="@id/passwordcheck_box.iv" />
+
+            <ImageView
+                android:id="@+id/eye_off1.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/eye_off"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintTop_toTopOf="@id/passwordcheck_box.iv"
+                app:layout_constraintBottom_toBottomOf="@id/passwordcheck_box.iv"
+                app:layout_constraintEnd_toEndOf="@id/passwordcheck_box.iv"/>
+
+            <TextView
+                android:id="@+id/error3.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비밀번호가 일치하지 않습니다."
+                android:textColor="#E13017"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginTop="6dp"
+                app:layout_constraintTop_toBottomOf="@id/passwordcheck_box.iv"
+                app:layout_constraintStart_toStartOf="@id/passwordcheck_box.iv"/>
+
+            <!--닉네임-->
+            <TextView
+                android:id="@+id/nickname.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="닉네임"
+                android:textColor="@color/hanblack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/passwordcheck_box.iv"
+                app:layout_constraintTop_toBottomOf="@id/passwordcheck_box.iv" />
+
+            <ImageView
+                android:id="@+id/iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="1dp"
+                android:src="@drawable/dot"
+                app:layout_constraintStart_toEndOf="@id/nickname.tv"
+                app:layout_constraintTop_toTopOf="@id/nickname.tv" />
+
+            <ImageView
+                android:id="@+id/nickname_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/minibox"
+                app:layout_constraintStart_toStartOf="@id/nickname.tv"
+                app:layout_constraintTop_toBottomOf="@id/nickname.tv" />
+
+            <EditText
+                android:id="@+id/nickname.et"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
+                android:background="@android:color/transparent"
+                android:hint="닉네임을 입력해 주세요"
+                android:inputType="text"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/nickname_box.iv"
+                app:layout_constraintStart_toStartOf="@id/nickname_box.iv"
+                app:layout_constraintTop_toTopOf="@id/nickname_box.iv" />
+
+            <TextView
+                android:id="@+id/nick_sub.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영어와 한글만 입력해 주세요"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/nickname_box.iv"
+                app:layout_constraintStart_toStartOf="@id/nickname_box.iv"/>
+
+            <ImageView
+                android:id="@+id/check1.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/checkbtn"
+                app:layout_constraintStart_toEndOf="@id/nickname_box.iv"
+                app:layout_constraintTop_toTopOf="@id/nickname_box.iv" />
+
+            <TextView
+                android:id="@+id/check1.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="중복 확인"
+                android:textColor="#B5B6BD"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/check1.iv"
+                app:layout_constraintEnd_toEndOf="@id/check1.iv"
+                app:layout_constraintStart_toStartOf="@id/check1.iv"
+                app:layout_constraintTop_toTopOf="@id/check1.iv" />
+
+            <!--전화번호-->
+            <TextView
+                android:id="@+id/phonenumber.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="전화번호"
+                android:textColor="@color/hanblack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/nick_sub.tv"
+                app:layout_constraintTop_toBottomOf="@id/nick_sub.tv" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="1dp"
+                android:src="@drawable/dot"
+                app:layout_constraintStart_toEndOf="@id/phonenumber.tv"
+                app:layout_constraintTop_toTopOf="@id/phonenumber.tv" />
+
+            <ImageView
+                android:id="@+id/phonenumber_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/minibox"
+                app:layout_constraintStart_toStartOf="@id/phonenumber.tv"
+                app:layout_constraintTop_toBottomOf="@id/phonenumber.tv" />
+
+            <EditText
+                android:id="@+id/phonenumber.et"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
+                android:background="@android:color/transparent"
+                android:hint="숫자만 입력해 주세요"
+                android:inputType="phone"
+                android:maxLength="13"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/phonenumber_box.iv"
+                app:layout_constraintStart_toStartOf="@id/phonenumber_box.iv"
+                app:layout_constraintTop_toTopOf="@id/phonenumber_box.iv" />
+
+            <ImageView
+                android:id="@+id/check2.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/checkbtn"
+                app:layout_constraintStart_toEndOf="@id/phonenumber_box.iv"
+                app:layout_constraintTop_toTopOf="@id/phonenumber_box.iv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="인증 요청"
+                android:textColor="#B5B6BD"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/check2.iv"
+                app:layout_constraintEnd_toEndOf="@id/check2.iv"
+                app:layout_constraintStart_toStartOf="@id/check2.iv"
+                app:layout_constraintTop_toTopOf="@id/check2.iv" />
+
+            <!--인증번호-->
+
+            <TextView
+                android:id="@+id/checknumber.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="인증번호"
+                android:textColor="@color/hanblack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/phonenumber_box.iv"
+                app:layout_constraintTop_toBottomOf="@id/phonenumber_box.iv" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="1dp"
+                android:src="@drawable/dot"
+                app:layout_constraintStart_toEndOf="@id/checknumber.tv"
+                app:layout_constraintTop_toTopOf="@id/checknumber.tv" />
+
+            <ImageView
+                android:id="@+id/checknumber_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/minibox"
+                app:layout_constraintStart_toStartOf="@id/checknumber.tv"
+                app:layout_constraintTop_toBottomOf="@id/checknumber.tv" />
+
+            <EditText
+                android:id="@+id/checknumber.et"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
+                android:background="@android:color/transparent"
+                android:hint="인증번호를 입력해 주세요"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/checknumber_box.iv"
+                app:layout_constraintStart_toStartOf="@id/checknumber_box.iv"
+                app:layout_constraintTop_toTopOf="@id/checknumber_box.iv" />
+
+            <ImageView
+                android:id="@+id/check3.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/checkbtn"
+                app:layout_constraintStart_toEndOf="@id/checknumber_box.iv"
+                app:layout_constraintTop_toTopOf="@id/checknumber_box.iv" />
+
+            <TextView
+                android:id="@+id/check3.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인"
+                android:textColor="#B5B6BD"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/check3.iv"
+                app:layout_constraintEnd_toEndOf="@id/check3.iv"
+                app:layout_constraintStart_toStartOf="@id/check3.iv"
+                app:layout_constraintTop_toTopOf="@id/check3.iv" />
+
+            <ImageView
+                android:id="@+id/line.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/line"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/check3.iv" />
+
+            <ImageView
+                android:id="@+id/checkbutton.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/checkbutton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line.iv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="모두 동의하기"
+                android:textColor="#5C5D61"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/checkbutton.iv"
+                app:layout_constraintTop_toTopOf="@id/checkbutton.iv" />
+
+            <ImageView
+                android:id="@+id/sharpline.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/sharpline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkbutton.iv" />
+
+            <ImageView
+                android:id="@+id/minicheck1.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/check"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sharpline.iv" />
+
+            <TextView
+                android:id="@+id/text.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="개인정보 처리방침"
+                android:textColor="#3F3F42"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/minicheck1.iv"
+                app:layout_constraintStart_toEndOf="@id/minicheck1.iv"
+                app:layout_constraintTop_toTopOf="@id/minicheck1.iv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="(필수)"
+                android:textColor="#B5B6BD"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/minicheck1.iv"
+                app:layout_constraintStart_toEndOf="@id/text.tv"
+                app:layout_constraintTop_toTopOf="@id/minicheck1.iv" />
+
+            <TextView
+                android:id="@+id/text2.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:text="보기"
+                android:textColor="#B5B6BD"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@id/minicheck1.iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/minicheck1.iv" />
+
+            <ImageView
+                android:id="@+id/minicheck2.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/check"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text2.tv" />
+
+            <TextView
+                android:id="@+id/text3.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="서비스 이용약관"
+                android:textColor="#3F3F42"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/minicheck2.iv"
+                app:layout_constraintStart_toEndOf="@id/minicheck2.iv"
+                app:layout_constraintTop_toTopOf="@id/minicheck2.iv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="(필수)"
+                android:textColor="#B5B6BD"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/minicheck2.iv"
+                app:layout_constraintStart_toEndOf="@id/text3.tv"
+                app:layout_constraintTop_toTopOf="@id/minicheck2.iv" />
+
+            <TextView
+                android:id="@+id/text4.tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:text="보기"
+                android:textColor="#B5B6BD"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@id/minicheck2.iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/minicheck2.iv" />
+
+            <ImageView
+                android:id="@+id/addbutton.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/addbutton"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text4.tv"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가입하기"
+                android:textColor="#5C5D61"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/addbutton.iv"
+                app:layout_constraintEnd_toEndOf="@id/addbutton.iv"
+                app:layout_constraintStart_toStartOf="@id/addbutton.iv"
+                app:layout_constraintTop_toTopOf="@id/addbutton.iv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
