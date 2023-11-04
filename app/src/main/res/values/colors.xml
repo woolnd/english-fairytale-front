@@ -10,5 +10,7 @@
     <color name="community_gray">#F7F8FA</color>
     <color name="community_basic">#FF9254</color>
     <color name="translucent_gray">#80808080</color>
-    <color name="mypage_background">#F2F3F5</color>
+    <color name="mypage_background">#F2F3F5</color>s
+    <color name="hanblack">#1F2021</color>
+    <color name="hanred">#E13017</color>
 </resources>

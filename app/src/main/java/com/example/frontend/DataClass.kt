@@ -46,3 +46,15 @@ data class ModifyPw(
     var originalPassword: String,
     var newPassword: String
 )
+
+data class JoinRequest(
+    var name: String,
+    var phoneNumber: String,
+    var nickname: String,
+    var email: String,
+    var password: String
+)
+
+data class JoinResponse(
+    var memnberId: Int
+)

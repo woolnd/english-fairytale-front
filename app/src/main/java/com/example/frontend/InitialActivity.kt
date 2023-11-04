@@ -43,6 +43,10 @@ class InitialActivity: AppCompatActivity() {
 // 처음 실행 예약
         handler.postDelayed(runnable, 3000)
 
+        binding.joinTv.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
         binding.pwTv.setOnClickListener {
             val intent = Intent(this, ResetPwActivity::class.java)
             startActivity(intent)
