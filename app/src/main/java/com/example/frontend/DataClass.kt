@@ -58,3 +58,16 @@ data class MemberRegisterDto(
     @field:SerializedName("password")
     val password: String
 )
+
+data class DetailInfoResponse(
+    var nickname: String,
+    var email: String,
+    var phoneNumber: String,
+    var imageUrl: String
+)
+
+data class ModifyPwRequest(
+    var originalPassword: String,
+    var newPassword: String
+)
+

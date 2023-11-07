@@ -46,6 +46,27 @@ class InfoActivity: AppCompatActivity(){
 
         var Service = retrofit.create(Service::class.java)
 
+        val userId = intent.getIntExtra("memberId", 0)
+
+        Service.detailInfo(userId).enqueue(object : Callback<DetailInfoResponse> {
+            override fun onResponse(call: Call<DetailInfoResponse>, response: Response<DetailInfoResponse>) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
+                var dialog = AlertDialog.Builder(this@InfoActivity)
+                var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
+                if(result != null){
+                    binding.emailTv.text = result.email
+                    binding.nickEt.hint = result.nickname
+                }
+                else{
+                    dialog.setTitle("조회 실패")
+                    dialog.setMessage("조회에 실패하였습니다.")
+                    dialog.show()
+
+                }
+            }
+            override fun onFailure(call: Call<DetailInfoResponse>, t: Throwable) {
+
+            }
+        })
 
         val fragment_profile = InfoProfilePopupFragment()
         val fragment_popup = InfoPopupFragment()
@@ -61,6 +82,7 @@ class InfoActivity: AppCompatActivity(){
 
         binding.pwBoxCl.setOnClickListener {
             val intent = Intent(this, PwModifyActivity::class.java)
+            intent.putExtra("memberId", userId)
             startActivity(intent)
         }
 

@@ -10,10 +10,17 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.frontend.databinding.ActivityPwModifyBinding
+import okhttp3.OkHttpClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class PwModifyActivity: AppCompatActivity() {
 
@@ -24,6 +31,19 @@ class PwModifyActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val httpClient = OkHttpClient.Builder()
+            .addInterceptor(TokenInterceptor()) // Add your custom interceptor
+            .build()
+
+        var retrofit = Retrofit.Builder()
+            .baseUrl("http://52.78.27.113:8080")//서버 주소를 적을 것
+            .client(httpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        var Service = retrofit.create(Service::class.java)
+
+        val memberId = intent.getIntExtra("memberId", 0)
         val fragment_popup = PwModifyPopupFragment()
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
@@ -131,13 +151,40 @@ class PwModifyActivity: AppCompatActivity() {
 
         binding.btnIv.setOnClickListener {
             val currentImg = binding.btnIv.drawable
-            val btnon = ContextCompat.getDrawable(this, R.drawable.info_btn)
-            if(currentImg != null && btnon != null){
-                if(areDrawablesEqual(currentImg, btnon)){
-                    supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
-                    window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
+            val orignalPw = binding.pw1Et.text.toString()
+            val newPw = binding.pw2Et.text.toString()
+            val request = ModifyPwRequest(orignalPw, newPw)
+
+            Service.modifyPw(memberId, request).enqueue(object : Callback<Unit> {
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
+                    var dialog = AlertDialog.Builder(this@PwModifyActivity)
+                    var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
+                    dialog.setTitle("멀까")
+                    dialog.setMessage("${response}")
+                    dialog.show()
+
+                    if(result != null){
+
+                    }
+                    else{
+                        dialog.setTitle("변경 실패")
+                        dialog.setMessage("변경에 실패하였습니다.")
+                        dialog.show()
+
+                    }
                 }
-            }
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+
+                }
+            })
+
+//            val btnon = ContextCompat.getDrawable(this, R.drawable.info_btn)
+//            if(currentImg != null && btnon != null){
+//                if(areDrawablesEqual(currentImg, btnon)){
+//                    supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
+//                    window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
+//                }
+//            }
         }
 
         binding.backIv.setOnClickListener {

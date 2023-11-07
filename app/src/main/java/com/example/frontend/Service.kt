@@ -24,4 +24,15 @@ interface Service {
         @Part("memberRegisterDto") memberRegisterDto: MemberRegisterDto,
         @Part image: MultipartBody.Part?
     ): Call<Int>
+
+    @GET("/api/v1/member/{userId}/detail")
+    fun detailInfo(
+        @Path("userId") userId: Int
+    ): Call<DetailInfoResponse>
+
+    @PATCH("/api/v1/member/password/{memberId}")
+    fun modifyPw(
+        @Path("memberId") memberId: Int,
+        @Body ModifyPwRequest: ModifyPwRequest
+    ): Call<Unit>
 }
