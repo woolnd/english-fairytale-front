@@ -2,6 +2,7 @@ package com.example.frontend
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.frontend.databinding.ActivityMypageBinding
@@ -15,7 +16,8 @@ class MypageActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val memberId = intent.getIntExtra("memberid", 0)
+        val memberId = intent.getIntExtra("memberId", 0)
+
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
 
         binding.backIv.setOnClickListener {
@@ -24,6 +26,7 @@ class MypageActivity: AppCompatActivity() {
 
         binding.infoBtnIv.setOnClickListener {
             val intent = Intent(this, InfoActivity::class.java)
+            intent.putExtra("memberId", memberId)
             startActivity(intent)
         }
 

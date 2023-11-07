@@ -8,10 +8,10 @@ import retrofit2.http.*
 
 interface Service {
 
-    @POST("/api/v1/member/register")
+    @POST("/api/v1/member/login")
     fun login(
-        @Body loginRequestData: LoginReqeust
-    ) : Call<LoginResponse>
+        @Body loginRequest: LoginReqeust
+    ) : Call<Int>
 
     @POST("/api/v1/member/check")
     fun nick(
@@ -19,10 +19,9 @@ interface Service {
     ) : Call<Unit>
 
     @Multipart
-    @FormUrlEncoded
     @POST("/api/v1/member/register")
-    fun join(
-        @Field("memberRegisterDto") JoinRequest: JoinRequest,
-        @Part image: MultipartBody.Part
-    ): Call<JoinResponse>
+    fun registerMember(
+        @Part("memberRegisterDto") memberRegisterDto: MemberRegisterDto,
+        @Part image: MultipartBody.Part?
+    ): Call<Int>
 }

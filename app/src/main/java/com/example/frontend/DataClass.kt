@@ -1,6 +1,7 @@
 package com.example.frontend
 
 import androidx.annotation.Nullable
+import com.google.gson.annotations.SerializedName
 
 data class Book(
     var title: String,
@@ -38,23 +39,22 @@ data class LoginReqeust(
     var password: String
 )
 
-data class LoginResponse(
-    var id: Int
-)
-
 data class ModifyPw(
     var originalPassword: String,
     var newPassword: String
 )
 
-data class JoinRequest(
-    var name: String,
-    var phoneNumber: String,
-    var nickname: String,
-    var email: String,
-    var password: String
-)
+data class MemberRegisterDto(
 
-data class JoinResponse(
-    var memnberId: Int
+    @field:SerializedName("phoneNumber")
+    var phoneNumber: String,
+
+    @field:SerializedName("nickname")
+    var nickname: String,
+
+    @field:SerializedName("email")
+    val email: String,
+
+    @field:SerializedName("password")
+    val password: String
 )

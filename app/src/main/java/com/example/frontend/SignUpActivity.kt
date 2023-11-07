@@ -1,24 +1,36 @@
 package com.example.frontend
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.database.Cursor
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint.Join
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.telephony.PhoneNumberFormattingTextWatcher
+import android.os.Environment
+import android.provider.MediaStore
+import android.provider.Settings
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.frontend.databinding.ActivitySignupBinding
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -30,17 +42,24 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.lang.Exception
 import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignupBinding
+    lateinit var getResult: ActivityResultLauncher<Intent>
+    private var imagePart: MultipartBody.Part? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+
         var cnt = 0
+
         val httpClient = OkHttpClient.Builder()
             .addInterceptor(TokenInterceptor()) // Add your custom interceptor
             .build()
@@ -160,6 +179,7 @@ class SignUpActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         binding.nickSubTv.text = "사용가능한 닉네임입니다."
                         binding.nicknameBoxIv.setImageResource(R.drawable.info_nick)
+                        binding.nickSubTv.setTextColor(Color.parseColor("#000000"))
                         cnt++
                     }else{
                         binding.nickSubTv.text = "중복된 닉네임입니다."
@@ -275,51 +295,134 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.addbuttonIv.setOnClickListener {
             var email = binding.emailEt.text.toString()
-            var pw = binding.passwordCheckEt.text.toString()
+            var pw = binding.passwordEt.text.toString()
             var nick = binding.nicknameEt.text.toString()
             var phone = binding.phonenumberEt.text.toString()
 
-            val imageFile = File("경로/이미지파일.jpg") // 이미지 파일의 경로로 변경
-            val requestFile = RequestBody.create(MediaType.parse("image/*"), imageFile)
-            val imagePart = MultipartBody.Part.createFormData("image", imageFile.name, requestFile)
 
-            val joinRequest = JoinRequest("엄재웅",phone, nick, email, pw)// 생성한 JoinRequest 객체
+            val joinRequest = MemberRegisterDto(phone, nick, email, pw)// 생성한 JoinRequest 객체
 
             var dialog = AlertDialog.Builder(this@SignUpActivity)
-            Service.join(joinRequest, imagePart).enqueue(object : Callback<JoinResponse> {
+
+            Service.registerMember(joinRequest, null).enqueue(object : Callback<Int> {
                 override fun onResponse(
-                    call: Call<JoinResponse>,
-                    response: Response<JoinResponse>
+                    call: Call<Int>,
+                    response: Response<Int>
                 ) {
-                    var result: JoinResponse? = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
-                    if(result != null){
-                        if(result.memnberId!= null){
-                            finish()
-                        }
-                        else{
-                            dialog.setTitle("회원가입 실패")
-                            dialog.setMessage("회원가입에 실패하였습니다.")
-                            dialog.show()
-                        }
-                    }
-                    else{
-                        dialog.setTitle("회원가입 실패")
-                        dialog.setMessage("회원가입에 실패하였습니다.")
-                        dialog.show()
-                    }
+                    var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
+                    dialog.setTitle("멀까")
+                    dialog.setMessage("${result}")
+                    dialog.show()
+//                    if(result != null){
+//                        dialog.setTitle("성공")
+//                        dialog.setMessage("${result}")
+//                        dialog.show()
+//                    }
+//                    else{
+//                        dialog.setTitle("회원가입 실패")
+//                        dialog.setMessage("회원가입에 실패하였습니다.")
+//                        dialog.show()
+//                    }
                 }
 
-                override fun onFailure(call: Call<JoinResponse>, t: Throwable) {
+                override fun onFailure(call: Call<Int>, t: Throwable) {
                     dialog.setTitle("통신 실패")
-                    dialog.setMessage("통신에 실패하였습니다.")
+                    dialog.setMessage("${t}")
                     dialog.show()
                 }
 
 
             })
         }
+
+//        val fragment_profile = JoinProfilePopupFragment()
+
+//        binding.settingIv.setOnClickListener {
+////            supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_profile).commit()
+////            window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
+////            val intent = Intent(Intent.ACTION_PICK)
+////            intent.type = "image/*"
+////            lanuchActivityResult(intent)
+//        }
+
+//        // 현재 기기에 설정된 쓰기 권한을 가져오기 위한 변수
+//        var writePermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE )
+//
+//        // 현재 기기에 설정된 읽기 권한을 가져오기 위한 변수
+//        var readPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+//
+        // 읽기 권한과 쓰기 권한에 대해서 설정이 되어있지 않다면
+//        binding.settingIv.setOnClickListener {
+//            var state = Environment.getExternalStorageState()
+//
+//            // 갤러리를 열어서 파일을 선택할 수 있도록 합니다.
+//            if (TextUtils.equals(state, Environment.MEDIA_MOUNTED)) {
+//                val intent = Intent(Intent.ACTION_PICK)
+//                intent.type = "image/*"
+//                getResult.launch(intent)
+//            }
+//        }
+//        getResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+//            if (it.resultCode == Activity.RESULT_OK) {
+//                val uri  = it.data!!.data
+//                //화면에 보여주기
+//                Glide.with(this)
+//                    .load(uri) //이미지
+//                    .into(binding.profileIv)
+//                val filePath = getRealPathFromURI(it.data?.data!!)
+//                val file = File(filePath)
+//                val requestFile = RequestBody.create(MediaType.parse("image/*"), file)
+//                imagePart = MultipartBody.Part.createFormData("photo", "photo", requestFile)
+//            }
+//        }
+
+        binding.settingIv.setOnClickListener {
+            val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.setType("image/*")
+            lanuchActivityResult(intent)
+        }
+
+        binding.backbuttonIv.setOnClickListener {
+            finish()
+        }
     }
 
+    fun lanuchActivityResult(intent: Intent){
+        activityResult.launch(intent)
+    }
+
+    val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()){
+
+        if (it.resultCode == Activity.RESULT_OK) {
+            var currentImageUri: Uri? = it.data?.data
+
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, currentImageUri)
+                getResizedBitmap(bitmap,10)
+                binding.profileIv.setImageBitmap(bitmap)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+
+        }else{
+            Log.d("ActivityResult", "something wrong")
+        }
+    }
+
+    private fun getResizedBitmap(image: Bitmap, maxSize: Int): Bitmap? {
+        var width = image.width
+        var height = image.height
+        val bitmapRatio = width.toFloat() / height.toFloat()
+        if (bitmapRatio > 1) {
+            width = maxSize
+            height = (width / bitmapRatio).toInt()
+        } else {
+            height = maxSize
+            width = (height * bitmapRatio).toInt()
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true)
+    }
     fun verifyEmail(email: String): Boolean{
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
         if(pattern.matcher(email).matches()){
@@ -358,4 +461,10 @@ class SignUpActivity : AppCompatActivity() {
         return bitmap
     }
 
+    fun changeFragment(fragment: Fragment){
+        supportFragmentManager
+            .beginTransaction()
+            .remove(fragment)
+            .commit()
+    }
 }

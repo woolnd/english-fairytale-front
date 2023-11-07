@@ -31,6 +31,8 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+
         val httpClient = OkHttpClient.Builder()
             .addInterceptor(TokenInterceptor()) // Add your custom interceptor
             .build()
@@ -45,6 +47,7 @@ class LoginActivity: AppCompatActivity() {
 
 
 
+
         binding.emailEt.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
@@ -52,7 +55,6 @@ class LoginActivity: AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 val email = binding.emailEt.text.toString()
-                val pw = binding.pwEt.text.toString()
 
                 if(verifyEmail(email)){
                     binding.error1Tv.visibility = View.GONE
@@ -83,10 +85,6 @@ class LoginActivity: AppCompatActivity() {
                     binding.btnIv.setImageResource(R.drawable.info_btn)
                     binding.btnTv.setTextColor(Color.parseColor("#FFFFFF"))
 
-                    binding.btnTv.setOnClickListener {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                    }
                 }
                 else{
                     binding.error2Tv.visibility = View.VISIBLE
@@ -120,33 +118,26 @@ class LoginActivity: AppCompatActivity() {
             val password = binding.pwEt.text.toString()
             var dialog = AlertDialog.Builder(this@LoginActivity)
 
-            Service.login(LoginReqeust(email, password)).enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                    var result: LoginResponse? = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
+            Service.login(LoginReqeust(email, password)).enqueue(object : Callback<Int> {
+                override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                    var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
                     if(result != null){
-                        if(result.id != null){
-                            var intent = Intent(this@LoginActivity, MainActivity::class.java)
-                            intent.putExtra("memberId",result.id)
-                            startActivity(intent)
-                        }
-                        else{
-                            dialog.setTitle("로그인 실패")
-                            dialog.setMessage("로그인에 실패하였습니다.")
-                            dialog.show()
-                        }
+                        var intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("memberId",result)
+                        startActivity(intent)
+                        finish()
                     }
                     else{
-                        dialog.setTitle("로그인 실패")
+                        dialog.setTitle("로그인 실패1")
                         dialog.setMessage("로그인에 실패하였습니다.")
                         dialog.show()
                     }
 
                 }
-
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                override fun onFailure(call: Call<Int>, t: Throwable) {
                     //웹통신이 실패했을 시
                     dialog.setTitle("통신 실패")
-                    dialog.setMessage("통신에 실패하였습니다.")
+                    dialog.setMessage("${t}")
                     dialog.show()
 
                 }

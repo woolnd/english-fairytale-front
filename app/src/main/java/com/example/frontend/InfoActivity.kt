@@ -46,8 +46,11 @@ class InfoActivity: AppCompatActivity(){
 
         var Service = retrofit.create(Service::class.java)
 
+
         val fragment_profile = InfoProfilePopupFragment()
         val fragment_popup = InfoPopupFragment()
+
+
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
         binding.btnIv.setOnClickListener {
@@ -66,9 +69,6 @@ class InfoActivity: AppCompatActivity(){
 
             supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_profile).commit()
             window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
-//            val intent = Intent(Intent.ACTION_PICK)
-//            intent.type = "image/*"
-//            activityResult.launch(intent)
         }
 
         binding.nickBtnIv.setOnClickListener {

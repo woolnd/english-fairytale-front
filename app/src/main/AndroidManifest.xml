@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage"/>
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:installLocation="preferExternal"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,8 +19,9 @@
         android:roundIcon="@mipmap/i_luv_book_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Frontend"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        tools:targetApi="33"
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
 
         <activity android:name=".InitialActivity" android:exported="true">
             <intent-filter>
@@ -34,7 +39,8 @@
         <activity android:name=".MypageActivity" android:exported="false">
         </activity>
 
-        <activity android:name=".InfoActivity" android:exported="false">
+        <activity android:name=".InfoActivity" android:exported="true">
+
         </activity>
 
         <activity android:name=".PwModifyActivity" android:exported="false">
