@@ -13,4 +13,6 @@
     <color name="mypage_background">#F2F3F5</color>s
     <color name="hanblack">#1F2021</color>
     <color name="hanred">#E13017</color>
+    <color name="gray">#F5F5F5</color>
+    <color name="darkgray">#5C5D61</color>
 </resources>

@@ -30,6 +30,11 @@ class MypageActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.inquiryBtnIv.setOnClickListener {
+            val intent = Intent(this, ContactActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.noticeIv.setOnClickListener {
             val intent = Intent(this, NotifyActivity::class.java)
             startActivity(intent)

@@ -71,3 +71,9 @@ data class ModifyPwRequest(
     var newPassword: String
 )
 
+data class ProfileData (
+    val kor : String,
+    val eng : String
+)
+
+

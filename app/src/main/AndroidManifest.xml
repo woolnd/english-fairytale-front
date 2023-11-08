@@ -8,6 +8,13 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
 
     <application
         android:installLocation="preferExternal"
@@ -15,7 +22,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/i_luv_book"
-        android:label="@string/app_name"
+        android:label="I Luv Book"
         android:roundIcon="@mipmap/i_luv_book_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Frontend"
@@ -23,11 +30,7 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 
-        <activity android:name=".InitialActivity" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".InitialActivity" android:exported="false">
         </activity>
 
         <activity android:name=".MainActivity" android:exported="false">
@@ -67,6 +70,20 @@
         <activity android:name=".ResetPwActivity" android:exported="false">
         </activity>
         <activity android:name=".SignUpActivity" android:exported="false">
+        </activity>
+        <activity android:name=".ContactActivity" android:exported="false">
+        </activity>
+        <activity android:name=".LoadingActivity" android:exported="false">
+        </activity>
+        <activity android:name=".MakeActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".BookActivity" android:exported="false">
+        </activity>
+        <activity android:name=".CreateFinishActivity" android:exported="false">
         </activity>
     </application>
 

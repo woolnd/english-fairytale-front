@@ -37,6 +37,11 @@ class MainFragment: Fragment() {
             adapter = MainAdapter().build(books)
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
+
+        binding.makeBtnIv.setOnClickListener {
+            val intent = Intent(context, MakeActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
