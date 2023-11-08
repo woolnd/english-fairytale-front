@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/beforebutton_finish.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/button01"
+        android:strokeColor="#6F7075"
+        android:viewportWidth="11"
+        android:viewportHeight="20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/check_button.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/check_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="206dp"
+        android:layout_marginLeft="139.5dp"
+        android:layout_marginRight="140.5dp" />
+
+    <TextView
+        android:id="@+id/text1.tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나만의 동화 완성!"
+        app:layout_constraintTop_toBottomOf="@id/check_button.iv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="24sp"
+        android:textColor="#3F3F42"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text1.tv"
+        app:layout_constraintLeft_toLeftOf="@id/text1.tv"
+        android:text="동화책이 만들어졌어요\n이야기를 읽으러 가볼까요?"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="#98989E"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/view_book.iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/create_finish_button_iv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="동화책 보러가기"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="@id/view_book.iv"
+        app:layout_constraintLeft_toLeftOf="@id/view_book.iv"
+        app:layout_constraintRight_toRightOf="@id/view_book.iv"
+        android:layout_marginTop="18dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

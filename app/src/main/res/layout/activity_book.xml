@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_frame"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    tools:context=".BookActivity"
+    android:gravity="bottom"
+    app:umanoPanelHeight="735dp"
+    app:umanoDragView="@id/slide_layout"
+    app:umanoScrollableView="@id/book.sv">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/back.cl">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/slide_layout"
+        android:layout_width="360dp"
+        android:layout_height="1254dp"
+        android:background="#FFFFFF">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/book.cl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F2F3F5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/before_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/button01"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="16dp"/>
+
+            <TextView
+                android:id="@+id/texttitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="동화책"
+                android:textSize="18dp"
+                android:textColor="#1F2021"
+                app:layout_constraintStart_toEndOf="@id/before_button"
+                app:layout_constraintTop_toTopOf="@id/before_button"
+                app:layout_constraintEnd_toStartOf="@id/option_button"/>
+
+            <ImageView
+                android:id="@+id/option_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/book_option"
+                app:layout_constraintTop_toTopOf="@id/before_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="20dp" />
+
+            <ImageView
+                android:id="@+id/book"
+                android:layout_width="265dp"
+                android:layout_height="386dp"
+                android:src="@drawable/default_image"
+                android:background="@drawable/background3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/texttitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <ImageView
+                android:id="@+id/name_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/book_name"
+                app:layout_constraintTop_toTopOf="@id/book"
+                app:layout_constraintStart_toStartOf="@id/book"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hello"
+                android:textColor="#FFFFFF"
+                app:layout_constraintTop_toTopOf="@id/name_chip"
+                app:layout_constraintStart_toStartOf="@id/name_chip"
+                app:layout_constraintEnd_toEndOf="@id/name_chip"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/name"
+                app:layout_constraintStart_toStartOf="@id/name_chip"
+                android:layout_marginTop="8dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/book_top_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="231dp"/>
+
+            <ImageView
+                android:id="@+id/clickbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/book_round"
+                app:layout_constraintTop_toBottomOf="@id/book"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="41dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/book.sv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/book.cl"
+            android:background="#FFFFFF">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/title.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="The dog and His bone"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:textColor="#1F2021"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/title.tv"
+                    app:layout_constraintStart_toStartOf="@id/title.tv"
+                    android:layout_marginTop="8dp"
+                    android:text="김철수의이야기"
+                    android:textColor="#B5B6BD"
+                    android:textSize="16sp"
+                    android:id="@+id/name.tv" />
+
+                <TextView
+                    android:id="@+id/chip1.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/image_chip"
+                    android:textColor="@color/darkgray"
+                    android:textSize="14sp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="12dp"
+                    app:layout_constraintStart_toStartOf="@id/name.tv"
+                    app:layout_constraintTop_toBottomOf="@id/name.tv"
+                    android:layout_marginTop="24dp"
+                    android:text="congratulations"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/chip2.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/image_chip"
+                    android:textColor="@color/darkgray"
+                    android:textSize="14sp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="12dp"
+                    app:layout_constraintStart_toEndOf="@id/chip1.tv"
+                    app:layout_constraintTop_toTopOf="@id/chip1.tv"
+                    android:layout_marginLeft="6dp"
+                    android:text="biogeograhpical"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/chip3.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bookchip"
+                    android:textColor="@color/darkgray"
+                    android:textSize="14sp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="12dp"
+                    app:layout_constraintStart_toEndOf="@id/chip2.tv"
+                    app:layout_constraintTop_toTopOf="@id/chip2.tv"
+                    android:layout_marginLeft="6dp"
+                    android:text="bio"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/chip4.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bookchip"
+                    android:textColor="@color/darkgray"
+                    android:textSize="14sp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="12dp"
+                    app:layout_constraintStart_toStartOf="@id/chip1.tv"
+                    app:layout_constraintTop_toBottomOf="@id/chip1.tv"
+                    android:layout_marginTop="6dp"
+                    android:text="hello"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/chip5.tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bookchip"
+                    android:textColor="@color/darkgray"
+                    android:textSize="14sp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingRight="12dp"
+                    app:layout_constraintStart_toEndOf="@id/chip4.tv"
+                    app:layout_constraintTop_toTopOf="@id/chip4.tv"
+                    android:layout_marginLeft="6dp"
+                    android:text="biog"
+                    android:visibility="visible"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/item_recycler"
+                    app:layout_constraintTop_toBottomOf="@id/chip4.tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:paddingLeft="13dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+
+        <ImageView
+            android:id="@+id/titlebar"
+            android:layout_width="360dp"
+            android:layout_height="76dp"
+            android:src="@drawable/book_titlebar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/book_primary"
+            app:layout_constraintEnd_toEndOf="@id/titlebar"
+            app:layout_constraintTop_toTopOf="@id/titlebar"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="16dp" />
+
+        <ImageView
+            android:id="@+id/english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/book_english"
+            app:layout_constraintEnd_toStartOf="@id/primary"
+            app:layout_constraintTop_toTopOf="@id/primary"
+            android:layout_marginRight="8dp" />
+
+        <ImageView
+            android:id="@+id/hearttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/book_hearttitle"
+            app:layout_constraintTop_toTopOf="@id/english"
+            app:layout_constraintEnd_toStartOf="@id/english"
+            android:layout_marginRight="8dp"/>
+
+        <ImageView
+            android:id="@+id/heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/book_heart"
+            app:layout_constraintTop_toTopOf="@id/hearttitle"
+            app:layout_constraintStart_toStartOf="@id/hearttitle"
+            app:layout_constraintEnd_toEndOf="@id/hearttitle"
+            app:layout_constraintBottom_toBottomOf="@id/heartcount"
+            android:layout_marginBottom="7dp"/>
+
+        <TextView
+            android:id="@+id/heartcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="11sp"
+            android:textColor="#B5B6BD"
+            app:layout_constraintEnd_toEndOf="@id/hearttitle"
+            app:layout_constraintTop_toBottomOf="@id/heart"
+            app:layout_constraintStart_toStartOf="@id/hearttitle"
+            app:layout_constraintBottom_toBottomOf="@id/hearttitle"
+            android:layout_marginBottom="5dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

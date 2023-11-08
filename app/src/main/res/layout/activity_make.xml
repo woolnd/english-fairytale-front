@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp">
+
+            <ImageView
+                android:id="@+id/beforebutton.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:src="@drawable/button01"
+                android:strokeColor="#6F7075"
+                android:viewportWidth="11"
+                android:viewportHeight="20"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginLeft="16dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="단어로 동화 만들기"
+                android:textColor="#3F3F42"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/textView2"
+                app:layout_constraintTop_toBottomOf="@id/beforebutton.iv" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최대 5단어까지 추가 가능해요"
+                android:textColor="#6F7075"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/inputbutton.iv"
+                app:layout_constraintTop_toBottomOf="@id/textView" />
+
+            <ImageView
+                android:id="@+id/inputbutton.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/text_input"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+            <ImageView
+                android:id="@+id/add_chip_box.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/add_button_box"
+                app:layout_constraintBottom_toBottomOf="@id/inputbutton.iv"
+                app:layout_constraintRight_toRightOf="@id/inputbutton.iv"
+                app:layout_constraintTop_toTopOf="@id/inputbutton.iv" />
+
+            <ImageView
+                android:id="@+id/mike.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mic"
+                app:layout_constraintEnd_toStartOf="@id/add_chip_box.iv"
+                app:layout_constraintTop_toTopOf="@id/inputbutton.iv"
+                app:layout_constraintBottom_toBottomOf="@id/inputbutton.iv"
+                android:layout_marginRight="8dp" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="14dp"
+                android:hint="영문 15자 이내로 입력하세요"
+                android:textColorHint="#B5B6BD"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/inputbutton.iv"
+                app:layout_constraintLeft_toLeftOf="@id/inputbutton.iv"
+                app:layout_constraintTop_toTopOf="@id/inputbutton.iv" />
+
+            <GridLayout
+                android:id="@+id/tokenbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/inputbutton.iv"
+                app:layout_constraintLeft_toLeftOf="@id/inputbutton.iv"
+                android:layout_marginTop="12dp"
+                android:columnCount="2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/token1.cl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/token"
+                    android:visibility="gone"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/token1"
+                        android:text=""
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5C5D61"
+                        android:textSize="16sp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="4dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/close1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/close"
+                        app:layout_constraintLeft_toRightOf="@id/token1"
+                        app:layout_constraintBottom_toBottomOf="@id/token1"
+                        app:layout_constraintTop_toTopOf="@id/token1"
+                        android:paddingRight="12dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/token2.cl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/token"
+                    android:visibility="gone"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/token2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5C5D61"
+                        android:textSize="16sp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="4dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/close2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/close"
+                        android:paddingRight="12dp"
+                        app:layout_constraintLeft_toRightOf="@id/token2"
+                        app:layout_constraintBottom_toBottomOf="@id/token2"
+                        app:layout_constraintTop_toTopOf="@id/token2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/token3.cl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/token"
+                    android:visibility="gone"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/token3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5C5D61"
+                        android:textSize="16sp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="4dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/close3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/close"
+                        android:paddingRight="12dp"
+                        app:layout_constraintLeft_toRightOf="@id/token3"
+                        app:layout_constraintBottom_toBottomOf="@id/token3"
+                        app:layout_constraintTop_toTopOf="@id/token3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/token4.cl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/token"
+                    android:visibility="gone"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/token4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5C5D61"
+                        android:textSize="16sp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="4dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/close4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/close"
+                        android:paddingRight="12dp"
+                        app:layout_constraintLeft_toRightOf="@id/token4"
+                        app:layout_constraintBottom_toBottomOf="@id/token4"
+                        app:layout_constraintTop_toTopOf="@id/token4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/token5.cl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/token"
+                    android:visibility="gone"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/token5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5C5D61"
+                        android:textSize="16sp"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="4dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/close5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/close"
+                        android:paddingRight="12dp"
+                        app:layout_constraintLeft_toRightOf="@id/token5"
+                        app:layout_constraintBottom_toBottomOf="@id/token5"
+                        app:layout_constraintTop_toTopOf="@id/token5" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </GridLayout>
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="동화책 표지 정하기"
+                android:textColor="#3F3F42"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@id/tokenbox"
+                app:layout_constraintTop_toBottomOf="@id/tokenbox" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="표지가 될 이미지를 선택하세요"
+                android:textColor="#6F7075"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/textView3"
+                app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="328dp"
+                android:layout_height="343dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/img_select"
+                app:layout_constraintLeft_toLeftOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/phototext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toTopOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="@id/imageView">
+
+                <ImageView
+                    android:id="@+id/image_chip.iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_chip"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photo"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="@id/image_chip.iv"
+                    app:layout_constraintLeft_toLeftOf="@id/image_chip.iv"
+                    android:textSize="16sp"
+                    android:textColor="#98989E" />
+
+                <TextView
+                    android:id="@+id/how_to_picture.txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="어떤 사진이 좋을까?"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="#6F7075"
+                    app:layout_constraintTop_toBottomOf="@id/image_chip.iv"
+                    app:layout_constraintLeft_toLeftOf="@id/image_chip.iv"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="클릭해서 이미지를 선택해보자!"
+                    android:textSize="14sp"
+                    android:textColor="#98989E"
+                    app:layout_constraintTop_toBottomOf="@id/how_to_picture.txt"
+                    app:layout_constraintLeft_toLeftOf="@id/how_to_picture.txt"
+                    android:layout_marginTop="4dp"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ImageView
+                android:id="@+id/random_make_btn.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/random_make_btn"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintLeft_toLeftOf="@id/imageView" />
+
+            <ImageView
+                android:id="@+id/random.iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/random"
+                app:layout_constraintTop_toTopOf="@id/random_make_btn.iv"
+                app:layout_constraintStart_toStartOf="@id/random_make_btn.iv"
+                app:layout_constraintBottom_toBottomOf="@id/random_make_btn.iv"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="랜덤 만들기"
+                android:layout_marginLeft="6dp"
+                app:layout_constraintStart_toStartOf="@id/random.iv"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="@id/random.iv"
+                app:layout_constraintEnd_toEndOf="@id/random_make_btn.iv"
+                app:layout_constraintLeft_toLeftOf="@id/random.iv"/>
+
+            <ImageView
+                android:id="@+id/main_create_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/main_create_button"
+                app:layout_constraintLeft_toRightOf="@id/random_make_btn.iv"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
