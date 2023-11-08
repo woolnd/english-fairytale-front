@@ -156,15 +156,17 @@ class PwModifyActivity: AppCompatActivity() {
             val request = ModifyPwRequest(orignalPw, newPw)
 
             Service.modifyPw(memberId, request).enqueue(object : Callback<Unit> {
+                var dialog = AlertDialog.Builder(this@PwModifyActivity)
                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
-                    var dialog = AlertDialog.Builder(this@PwModifyActivity)
                     var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
-                    dialog.setTitle("멀까")
-                    dialog.setMessage("${response}")
-                    dialog.show()
-
+                    val btnon = ContextCompat.getDrawable(this@PwModifyActivity, R.drawable.info_btn)
                     if(result != null){
-
+                        if(currentImg != null && btnon != null){
+                            if(areDrawablesEqual(currentImg, btnon)){
+                                supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
+                                window.statusBarColor = ContextCompat.getColor(this@PwModifyActivity, R.color.translucent_gray)
+                            }
+                        }
                     }
                     else{
                         dialog.setTitle("변경 실패")
@@ -174,17 +176,13 @@ class PwModifyActivity: AppCompatActivity() {
                     }
                 }
                 override fun onFailure(call: Call<Unit>, t: Throwable) {
-
+                    dialog.setTitle("통신 실패")
+                    dialog.setMessage("통신에 실패하였습니다.")
+                    dialog.show()
                 }
             })
 
-//            val btnon = ContextCompat.getDrawable(this, R.drawable.info_btn)
-//            if(currentImg != null && btnon != null){
-//                if(areDrawablesEqual(currentImg, btnon)){
-//                    supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
-//                    window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
-//                }
-//            }
+
         }
 
         binding.backIv.setOnClickListener {

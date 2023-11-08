@@ -18,17 +18,22 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.frontend.databinding.ActivityInfoBinding
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Converter
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.reflect.Type
 
 
 class InfoActivity: AppCompatActivity(){
     lateinit var binding: ActivityInfoBinding
 
-
+    var nick: String =""
+    var newNick: String =""
+    var userId: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityInfoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -38,6 +43,7 @@ class InfoActivity: AppCompatActivity(){
             .addInterceptor(TokenInterceptor()) // Add your custom interceptor
             .build()
 
+
         var retrofit = Retrofit.Builder()
             .baseUrl("http://52.78.27.113:8080")//서버 주소를 적을 것
             .client(httpClient)
@@ -46,7 +52,7 @@ class InfoActivity: AppCompatActivity(){
 
         var Service = retrofit.create(Service::class.java)
 
-        val userId = intent.getIntExtra("memberId", 0)
+        userId = intent.getIntExtra("memberId", 0)
 
         Service.detailInfo(userId).enqueue(object : Callback<DetailInfoResponse> {
             override fun onResponse(call: Call<DetailInfoResponse>, response: Response<DetailInfoResponse>) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
@@ -55,6 +61,7 @@ class InfoActivity: AppCompatActivity(){
                 if(result != null){
                     binding.emailTv.text = result.email
                     binding.nickEt.hint = result.nickname
+                    nick = result.nickname
                 }
                 else{
                     dialog.setTitle("조회 실패")
@@ -75,9 +82,35 @@ class InfoActivity: AppCompatActivity(){
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
         binding.btnIv.setOnClickListener {
+            newNick = binding.nickEt.text.toString()
+            var dialog = AlertDialog.Builder(this@InfoActivity)
 
-            supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
-            window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
+            if(newNick == ""){
+                supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
+                window.statusBarColor = ContextCompat.getColor(this@InfoActivity, R.color.translucent_gray)
+            }
+            else{
+                Service.modifyNick(userId, newNick).enqueue(object : Callback<Unit> {
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
+                        var result = response.body()
+                        if(result!=null){
+                            supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_popup).commit()
+                            window.statusBarColor = ContextCompat.getColor(this@InfoActivity, R.color.translucent_gray)
+                        }else{
+                            dialog.setTitle("수정 실패")
+                            dialog.setMessage("수정에 실패하였습니다.")
+                            dialog.show()
+
+                        }
+                    }
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        //웹통신이 실패했을 시
+                        dialog.setTitle("통신 실패")
+                        dialog.setMessage("${t}")
+                        dialog.show()
+                    }
+                })
+            }
         }
 
         binding.pwBoxCl.setOnClickListener {
@@ -88,10 +121,10 @@ class InfoActivity: AppCompatActivity(){
 
 
         binding.profileSettingIv.setOnClickListener {
-
             supportFragmentManager.beginTransaction().replace(R.id.popup_fl, fragment_profile).commit()
             window.statusBarColor = ContextCompat.getColor(this, R.color.translucent_gray)
         }
+
 
         binding.nickBtnIv.setOnClickListener {
 
@@ -102,6 +135,7 @@ class InfoActivity: AppCompatActivity(){
                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
                     if(response.isSuccessful){
                         binding.nickSubTv.text = "사용가능한 닉네임입니다."
+                        binding.nickSubTv.setTextColor(Color.parseColor("#000000"))
                         binding.nickBoxIv.setImageResource(R.drawable.info_nick)
                     }else{
                         binding.nickSubTv.text = "중복된 닉네임입니다."
@@ -150,5 +184,9 @@ class InfoActivity: AppCompatActivity(){
                 .load(uri) //이미지
                 .into(binding.profileIv) //보여줄 위치
         }
+    }
+
+    fun activityfinish(){
+        finish()
     }
 }

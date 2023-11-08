@@ -35,4 +35,10 @@ interface Service {
         @Path("memberId") memberId: Int,
         @Body ModifyPwRequest: ModifyPwRequest
     ): Call<Unit>
+
+    @PATCH("/api/v1/member/nickname")
+    fun modifyNick(
+        @Query("memberId") memberId: Int,
+        @Query("nickname") nickname: String
+    ): Call<Unit>
 }
