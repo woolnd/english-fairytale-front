@@ -14,10 +14,18 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.frontend.databinding.ActivityMakeBinding
+import okhttp3.OkHttpClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.net.URI
+import java.util.concurrent.TimeUnit
 
 class MakeActivity : AppCompatActivity() {
 
@@ -29,6 +37,8 @@ class MakeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val memberId = intent.getIntExtra("memberId", 0)
 
         requestPermission()
 
@@ -82,7 +92,21 @@ class MakeActivity : AppCompatActivity() {
                     list2[check].text = text
                     binding.mainCreateBtn.setImageResource(R.drawable.make_book_btn)
                     binding.mainCreateBtn.setOnClickListener {
+                        val textList = ArrayList<String>()
+                        for (textView in list2) {
+                            val text = textView.text.toString()
+                            if(text != "")
+                                textList.add(text)
+                        }
+
+                        val model = "gpt-3.5-turbo"
+                        val imageStatus = "기본 이미지2"
+
                         val intent = Intent(this, LoadingActivity::class.java)
+                        intent.putExtra("memberId", memberId)
+                        intent.putExtra("model", model)
+                        intent.putExtra("textList", textList)
+                        intent.putExtra("imageStatus", imageStatus)
                         startActivity(intent)
                     }
                 }

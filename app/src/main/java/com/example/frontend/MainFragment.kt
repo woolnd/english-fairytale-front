@@ -22,6 +22,11 @@ class MainFragment: Fragment() {
     ): View? {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
+        var memberId = 0
+        arguments?.let {
+            memberId = it.getInt("memberId")
+        }
+
         binding.communityBtnIv.setOnClickListener {
             val intent = Intent(context, CommunityActivity::class.java)
             startActivity(intent)
@@ -40,6 +45,7 @@ class MainFragment: Fragment() {
 
         binding.makeBtnIv.setOnClickListener {
             val intent = Intent(context, MakeActivity::class.java)
+            intent.putExtra("memberId", memberId)
             startActivity(intent)
         }
         return binding.root

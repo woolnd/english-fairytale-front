@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.accessibility.AccessibilityViewCommand.SetTextArguments
@@ -34,6 +35,10 @@ class BookActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding = ActivityBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var dialog = AlertDialog.Builder(this@BookActivity)
+        val title = intent.getStringExtra("title")
+
+        dialog.setTitle("제발 성공").setMessage("${title}").show()
         //리사이클 뷰 생성
         initRecycler()
 

@@ -41,4 +41,11 @@ interface Service {
         @Query("memberId") memberId: Int,
         @Query("nickname") nickname: String
     ): Call<Unit>
+
+    @Multipart
+    @POST("/api/v1/fairytale/create")
+    fun makeFairytale(
+        @Part("taleCreateDto") taleCreateDto: TaleCreateDto,
+        @Part image: MultipartBody.Part?
+    ): Call<TaleResponse>
 }

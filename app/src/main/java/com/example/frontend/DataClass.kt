@@ -76,4 +76,19 @@ data class ProfileData (
     val eng : String
 )
 
+data class TaleCreateDto(
+    var memberId: Int?,
+    var model: String?,
+    var keywords: ArrayList<String>?,
+    var imageStatus: String?
+)
 
+data class TaleResponse(
+    var taleId: Int,
+    var title: String,
+    var content: String,
+    var kor: String,
+    var keywords: ArrayList<String>,
+    var imageUrl: String?,
+    var imgStatus: String
+)
