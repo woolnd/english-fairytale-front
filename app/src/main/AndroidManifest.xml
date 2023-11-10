@@ -31,10 +31,6 @@
         android:requestLegacyExternalStorage="true">
 
         <activity android:name=".InitialActivity" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <activity android:name=".MainActivity" android:exported="false">
@@ -81,10 +77,15 @@
         </activity>
         <activity android:name=".MakeActivity" android:exported="false">
         </activity>
-        <activity android:name=".BookActivity" android:exported="false">
+        <activity android:name=".BookActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".CreateFinishActivity" android:exported="false">
         </activity>
+
     </application>
 
 </manifest>

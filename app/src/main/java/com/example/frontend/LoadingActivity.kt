@@ -59,26 +59,18 @@ class LoadingActivity: AppCompatActivity() {
                 response: Response<TaleResponse>
             ) { //서버에서 받은 코드값을 duplic_code 객체에 넣음
                 var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
-                dialog.setTitle("제발")
-                dialog.setMessage("${result}")
-                dialog.show()
-//                if (result != null) {
-//                    val intent = Intent(this@LoadingActivity, BookActivity::class.java)
-//                    intent.putExtra("title", result.title)
-//                    intent.putExtra("taleId", result.taleId)
-//                    intent.putExtra("content", result.content)
-//                    intent.putExtra("kor", result.kor)
-//                    intent.putExtra("imageUrl", result.imageUrl)
-//                    intent.putExtra("imgStatus", result.imgStatus)
-//                    startActivity(intent)
-//                    finish()
-//
-//                } else {
-//                    dialog.setTitle("생성 실패")
-//                    dialog.setMessage("생성에 실패하였습니다.")
-//                    dialog.show()
-//
-//                }
+                if (result != null) {
+                    val intent = Intent(this@LoadingActivity, BookActivity::class.java)
+                    intent.putExtra("taleId", result.taleId)
+                    startActivity(intent)
+                    finish()
+
+                } else {
+                    dialog.setTitle("생성 실패")
+                    dialog.setMessage("생성에 실패하였습니다.")
+                    dialog.show()
+
+                }
             }
 
             override fun onFailure(call: Call<TaleResponse>, t: Throwable) {

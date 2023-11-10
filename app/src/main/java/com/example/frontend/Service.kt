@@ -48,4 +48,9 @@ interface Service {
         @Part("taleCreateDto") taleCreateDto: TaleCreateDto,
         @Part image: MultipartBody.Part?
     ): Call<TaleResponse>
+
+    @GET("/api/v1/fairytale/{taleId}/detail")
+    fun bookDetail(
+        @Path("taleId") taleId: Int?
+    ): Call<BookDetailResponse>
 }

@@ -84,11 +84,22 @@ data class TaleCreateDto(
 )
 
 data class TaleResponse(
-    var taleId: Int,
-    var title: String,
-    var content: String,
-    var kor: String,
-    var keywords: ArrayList<String>,
+    var taleId: Int?,
+    var title: String?,
+    var content: String?,
+    var kor: String?,
+    var keywords: ArrayList<String>?,
     var imageUrl: String?,
-    var imgStatus: String
+    var imgStatus: String?
+)
+
+data class BookDetailResponse(
+    var taleId: Int?,
+    var title: String?,
+    var memberName: String?,
+    var engTale: String?,
+    var korTale: String?,
+    var imgUrl: String?,
+    var imageStatus: String?,
+    var keywords: ArrayList<String>?
 )
