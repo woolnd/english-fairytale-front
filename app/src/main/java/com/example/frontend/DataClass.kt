@@ -6,14 +6,16 @@ import com.google.gson.annotations.SerializedName
 data class Book(
     var title: String,
     var keywords: ArrayList<String>,
-    var heart: Boolean
+    var heart: Boolean,
+    var color: Int
 )
 
 data class Books(
     val nick: String,
     var title: String,
     var keywords: ArrayList<String>,
-    var heart: Boolean
+    var heart: Boolean,
+    var color: Int
 )
 
 data class Notify(

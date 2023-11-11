@@ -16,13 +16,21 @@ class MakePopupFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMakePopupBinding.inflate(inflater, container, false)
+//
+//        binding.root.setOnTouchListener { _, _ -> true }
+//
+//        val slidingUpPanelLayout = activity?.findViewById<SlidingUpPanelLayout>(R.id.main_frame)
+//        slidingUpPanelLayout?.setOnTouchListener { _, _ -> true }
 
-        binding.root.setOnTouchListener { _, _ -> true }
+        binding.chooseCl.setOnClickListener {
+            (activity as BookActivity).changeFragment(this)
+        }
 
-        val slidingUpPanelLayout = activity?.findViewById<SlidingUpPanelLayout>(R.id.main_frame)
-        slidingUpPanelLayout?.setOnTouchListener { _, _ -> true }
-
-
+//        binding.backCl.setOnClickListener {
+//            val slidingUpPanelLayout = activity?.findViewById<SlidingUpPanelLayout>(R.id.main_frame)
+//            slidingUpPanelLayout?.setTouchEnabled(true)
+//            (activity as BookActivity).changeFragment(this)
+//        }
         return binding.root
     }
 

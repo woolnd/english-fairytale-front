@@ -1,6 +1,7 @@
 package com.example.frontend
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
@@ -52,6 +53,29 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>(){
 
             with(binding){
                 titleTv.text = item.title
+                when(item.color){
+                    1 -> {
+                        bookEx1Iv.setImageResource(R.drawable.book_card_ex1)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn1)
+                    }
+                    2->{
+                        bookEx1Iv.setImageResource(R.drawable.book_card_ex2)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn2)
+                    }
+                    3->{
+                        bookEx1Iv.setImageResource(R.drawable.book_card_ex3)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn3)
+                    }
+                    4->{
+                        bookEx1Iv.setImageResource(R.drawable.book_card_ex4)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn4)
+                    }
+                    5->{
+                        bookEx1Iv.setImageResource(R.drawable.book_card_ex5)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn5)
+                    }
+
+                }
                 if(item.heart.toString() == "true"){
                     heartIv.setImageResource(R.drawable.heart)
                 }

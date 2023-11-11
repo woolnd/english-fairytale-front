@@ -310,9 +310,7 @@ class SignUpActivity : AppCompatActivity() {
                     response: Response<Int>
                 ) {
                     var result = response.body() //서버에서 받은 코드값을 duplic_code 객체에 넣음
-                    dialog.setTitle("멀까")
-                    dialog.setMessage("${result}")
-                    dialog.show()
+                    finish()
 //                    if(result != null){
 //                        dialog.setTitle("성공")
 //                        dialog.setMessage("${result}")

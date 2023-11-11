@@ -51,6 +51,26 @@ class BestAdapter : RecyclerView.Adapter<BestAdapter.ViewHolder>(){
 
             with(binding){
                 titleTv.text = item.title
+                nickTv.text = item.nick
+                when(item.color){
+                    1 -> {
+                        bestIv.setImageResource(R.drawable.best_card)
+                    }
+                    2 -> {
+                        bestIv.setImageResource(R.drawable.best_card1)
+                    }
+                    3 -> {
+                        bestIv.setImageResource(R.drawable.best_card2)
+                    }
+                    4 -> {
+                        bestIv.setImageResource(R.drawable.best_card3)
+                    }
+                    5 -> {
+                        bestIv.setImageResource(R.drawable.best_card4)
+                    }
+
+                }
+
                 if(item.heart.toString() == "true"){
                     heartIv.setImageResource(R.drawable.heart)
                 }

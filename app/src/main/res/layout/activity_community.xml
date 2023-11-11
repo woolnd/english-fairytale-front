@@ -218,7 +218,8 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@id/community.tv"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/img.iv"

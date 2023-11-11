@@ -25,17 +25,19 @@ class CommunityActivity: AppCompatActivity() {
 
 
         val best = arrayListOf<Books>(
-            Books("hello","Play", arrayListOf("play"), false),
-            Books("james","My friend", arrayListOf("friend"), true),
-            Books("ruda","Bag", arrayListOf("heavy"), true),
-            Books("leoa","SmartPhone", arrayListOf("thin"), true)
+            Books("철수","The Magic of Knowledge: Lial’s Journey into Fantasia", arrayListOf("teacher"), false, 1),
+            Books("철수","The Pendant of Friendship", arrayListOf("animal", "girl"), true, 2),
+            Books("철수","Timmy and Leo’s Enchanted Adventure", arrayListOf("play", "friend"), true, 3),
+            Books("철수","The Guardian of the Enchanted Forest", arrayListOf("forest", "animal"), true, 4),
         )
 
         val books = arrayListOf<Books>(
-            Books("hello","Play", arrayListOf("play"), false),
-            Books("justin","My parent", arrayListOf("love", "parent", "family", "happy"), true),
-            Books("john","birthday", arrayListOf("happybirthday", "party", "happy", "remember", "friend"), true),
-            Books("sam","good morning", arrayListOf("niceday", "morning", "breakfast", "hungry"), true)
+            Books("철수", "The Magic of Knowledge: Lial’s Journey into Fantasia", arrayListOf("teacher"), false, 1),
+            Books("철수","The Pendant of Friendship", arrayListOf("animal", "girl"), true, 2),
+            Books("철수","Timmy and Leo’s Enchanted Adventure", arrayListOf("play", "friend"), true, 3),
+            Books("철수","The Guardian of the Enchanted Forest", arrayListOf("forest", "animal"), true, 4),
+            Books("영수","The Enchanted Journey of Jack, Sunny, and Baba", arrayListOf("father", "guidance", "bravery"), true, 5),
+            Books("영희","The Majestic Tiger and the Eternal Summer", arrayListOf("summer", "tiger"), false, 1),
         )
 
         binding.bestRv.apply {

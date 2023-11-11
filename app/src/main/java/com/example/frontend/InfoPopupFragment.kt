@@ -24,12 +24,12 @@ class InfoPopupFragment: Fragment() {
 
         binding.btnIv.setOnClickListener {
             (activity as InfoActivity).changeFragment(this)
-            (activity as InfoActivity).finish()
+            (activity as InfoActivity).activityfinish()
         }
 
         binding.closeIv.setOnClickListener {
             (activity as InfoActivity).changeFragment(this)
-            (activity as InfoActivity).finish()
+            (activity as InfoActivity).activityfinish()
         }
 
         return binding.root

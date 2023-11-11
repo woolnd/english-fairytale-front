@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/best.iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="158dp"
+            android:layout_height="202dp"
             android:src="@drawable/best_card"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="title"
-            android:textSize="16sp"
+            android:textSize="10sp"
             android:textColor="@color/white"
             android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@id/nick.tv"

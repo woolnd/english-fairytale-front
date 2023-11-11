@@ -34,8 +34,12 @@ class MainFragment: Fragment() {
         }
 
         val books = arrayListOf<Book>(
-            Book("Play", arrayListOf("play"), false),
-            Book("My tiger", arrayListOf("scare", "tiger", "anima", "friend"), true)
+            Book("The Magic of Knowledge: Lial’s Journey into Fantasia", arrayListOf("teacher"), false, 1),
+            Book("The Pendant of Friendship", arrayListOf("animal", "girl"), true, 2),
+            Book("Timmy and Leo’s Enchanted Adventure", arrayListOf("play", "friend"), true, 3),
+            Book("The Guardian of the Enchanted Forest", arrayListOf("forest", "animal"), true, 4),
+            Book("The Enchanted Journey of Jack, Sunny, and Baba", arrayListOf("father", "guidance", "bravery"), true, 5),
+            Book("The Majestic Tiger and the Eternal Summer", arrayListOf("summer", "tiger"), false, 1),
         )
 
         binding.bookRv.apply {

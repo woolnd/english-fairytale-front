@@ -52,6 +52,32 @@ class CommunityAdapter : RecyclerView.Adapter<CommunityAdapter.ViewHolder>(){
 
             with(binding){
                 titleTv.text = item.title
+                nickTv.text = item.nick
+
+                when(item.color){
+                    1 -> {
+                        bookEx1Iv.setImageResource(R.drawable.community_book)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn1)
+                    }
+                    2->{
+                        bookEx1Iv.setImageResource(R.drawable.community_book1)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn2)
+                    }
+                    3->{
+                        bookEx1Iv.setImageResource(R.drawable.community_book2)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn3)
+                    }
+                    4->{
+                        bookEx1Iv.setImageResource(R.drawable.community_book3)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn4)
+                    }
+                    5->{
+                        bookEx1Iv.setImageResource(R.drawable.community_book4)
+                        bookEx1BtnIv.setImageResource(R.drawable.start_btn5)
+                    }
+
+                }
+
                 if(item.heart.toString() == "true"){
                     heartIv.setImageResource(R.drawable.heart)
                 }
