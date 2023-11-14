@@ -178,7 +178,6 @@ class BookActivity: AppCompatActivity(),  TextToSpeech.OnInitListener{
         if (::tts.isInitialized) {
             // TTS를 중지하고 자원을 해제
             tts.stop()
-            tts.shutdown()
         }
     }
     override fun onDestroy() {
