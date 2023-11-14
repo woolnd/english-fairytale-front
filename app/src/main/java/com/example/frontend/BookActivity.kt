@@ -164,7 +164,7 @@ class BookActivity: AppCompatActivity(),  TextToSpeech.OnInitListener{
         if (status == TextToSpeech.SUCCESS) {
             // 언어 설정 (한국어로 설정 예시)
             val result = tts.setLanguage(Locale.ENGLISH)
-
+            tts.setSpeechRate(0.5f)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 // 언어 데이터가 없거나 지원되지 않을 경우
                 // 해당 언어를 사용할 수 없음
