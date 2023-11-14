@@ -53,4 +53,5 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:2.2.0") //원형 이미지뷰
     implementation("com.github.bumptech.glide:glide:4.14.1")
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.1")
+    implementation("androidx.cardview:cardview:1.0.0")
 }
